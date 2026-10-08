@@ -1,0 +1,14 @@
+node_modules/
+.sites-runtime/
+.env
+.DS_Store
+test-results/
+playwright-report/
+.env.*
+!.env.example
+.local/
+qa-artifacts/
+
+# Local-only hosting identity and generated build output
+.openai/
+dist/

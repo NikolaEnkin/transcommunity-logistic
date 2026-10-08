@@ -1,0 +1,35 @@
+{
+  "name": "transcommunity-logistic",
+  "version": "1.0.0",
+  "private": true,
+  "type": "module",
+  "scripts": {
+    "build": "node src/build.mjs",
+    "start": "node scripts/start.mjs",
+    "dev": "node scripts/serve.mjs",
+    "check": "node scripts/check.mjs",
+    "dev:local-env": "node --env-file=.env scripts/serve.mjs",
+    "test:api": "node --test scripts/test-api.mjs",
+    "test:production": "node --test scripts/test-production.mjs",
+    "test:intro": "node scripts/test-intro.cjs",
+    "test:browser": "node scripts/test-browser.cjs",
+    "test": "npm run test:api && npm run test:production && npm run test:intro && npm run test:carousel && npm run test:logo && npm run test:digital && npm run test:browser && npm run test:hero && npm run test:errors",
+    "test:performance": "lighthouse http://127.0.0.1:4173/ --output=json --output=html --output-path=./qa-artifacts/lighthouse-mobile --chrome-flags=--headless --only-categories=performance,accessibility,best-practices --quiet",
+    "test:carousel": "node scripts/test-carousel.cjs",
+    "test:logo": "node scripts/test-logo.cjs",
+    "test:digital": "node scripts/test-digital.cjs",
+    "test:hero": "node scripts/test-hero.cjs",
+    "test:errors": "node scripts/test-errors.cjs"
+  },
+  "engines": {
+    "node": ">=22.19"
+  },
+  "dependencies": {
+    "nodemailer": "^10.0.16"
+  },
+  "devDependencies": {
+    "@axe-core/playwright": "^4.13.0",
+    "lighthouse": "^13.5.0",
+    "playwright": "^1.64.0"
+  }
+}

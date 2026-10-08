@@ -1,0 +1,21 @@
+# This file lives at the root of the site/ Git repository.
+# Free preview: no paid resource and no ephemeral enquiry receipts.
+services:
+  - type: web
+    name: transcommunity-logistic
+    runtime: node
+    region: frankfurt
+    plan: free
+    buildCommand: npm ci --omit=dev && npm run build && npm run check
+    startCommand: npm start
+    healthCheckPath: /healthz
+    autoDeployTrigger: "off"
+    envVars:
+      - key: NODE_VERSION
+        value: 24.14.0
+      - key: NODE_ENV
+        value: production
+      - key: MAIL_MODE
+        value: disabled
+      - key: SEARCH_INDEXING
+        value: "false"
